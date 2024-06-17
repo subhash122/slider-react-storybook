@@ -1,6 +1,12 @@
 import React, { ChangeEvent, useState } from 'react'
 import './RangeSlider.scss'
-function RangeSlider({ handleChange, handleSize }: { handleChange: ({ }) => void, handleSize: string }) {
+
+interface RangeSliderProps {
+    handleSize: string,
+    handleChange: ({ }) => void
+}
+
+export const RangeSlider = ({ handleChange, handleSize }: RangeSliderProps) => {
     const [minValue, setMinValue] = useState<number>(20);
     const [maxValue, setMaxValue] = useState<number>(80);
     const min = 0;
@@ -50,4 +56,3 @@ function RangeSlider({ handleChange, handleSize }: { handleChange: ({ }) => void
     );
 }
 
-export default RangeSlider

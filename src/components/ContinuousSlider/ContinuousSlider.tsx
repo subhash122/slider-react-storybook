@@ -1,6 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
 import './ContinuousSlider.scss'
-const ContinuousSlider = ({ handleChange, handleSize }: { handleChange: ({ }) => void, handleSize: string }) => {
+
+interface ContinuousSliderProps {
+    handleSize: string,
+    handleChange: ({ }) => void
+}
+export const ContinuousSlider = ({ handleChange, handleSize }: ContinuousSliderProps) => {
     const [value, setValue] = useState<number>(50);
 
     const onValueChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -25,4 +30,3 @@ const ContinuousSlider = ({ handleChange, handleSize }: { handleChange: ({ }) =>
     );
 };
 
-export default ContinuousSlider;

@@ -1,7 +1,6 @@
-import { StoryObj } from "@storybook/react";
-import Slider from "../components/Slider/Slider";
-import { fn } from "@storybook/test";
+import { Meta, StoryObj } from "@storybook/react";
 import { action } from '@storybook/addon-actions';
+import { Slider } from "../components/Slider/Slider";
 
 const meta = {
     title: 'Example/Slider',
@@ -10,7 +9,7 @@ const meta = {
     tags: ['autodocs'],
 
     args: { handleChange: action("onChange") },
-}
+} satisfies Meta<typeof Slider>
 
 export default meta;
 type Story = StoryObj<typeof meta>;

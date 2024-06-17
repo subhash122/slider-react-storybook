@@ -1,11 +1,17 @@
 import React, { ChangeEvent, useState } from 'react';
 import './DiscreteSlider.scss'
-const DiscreteSlider = ({ steps, handleChange , handleSize}: { steps: number, handleChange: ({ }) => void , handleSize:string}) => {
+interface DiscreteSliderProps {
+    handleSize: string,
+    steps: number,
+    handleChange: ({ }) => void
+}
+
+export const DiscreteSlider = ({ steps, handleChange, handleSize }: DiscreteSliderProps) => {
     const [value, setValue] = useState<number>(50);
     const min = 0;
     const max = 100;
 
-    const onValueChange = (event:ChangeEvent<HTMLInputElement>) => {
+    const onValueChange = (event: ChangeEvent<HTMLInputElement>) => {
         setValue(Number(event.target.value));
         handleChange({ 'Value': event.target.value });
 
@@ -41,4 +47,3 @@ const DiscreteSlider = ({ steps, handleChange , handleSize}: { steps: number, ha
     );
 };
 
-export default DiscreteSlider;

@@ -14,13 +14,6 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
-  core: {
-    builder: '@storybook/builder-vite', // 👈 The builder enabled here.
-  },
-  // async viteFinal(config, options) {
-  //   return mergeConfig(config, {
-  //     base: "./",
-  //   });
-  // },
+  
 };
 export default config;
