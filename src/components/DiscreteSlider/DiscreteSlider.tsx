@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useMemo, useState } from 'react';
 import './DiscreteSlider.scss'
 interface DiscreteSliderProps {
     handleSize: string,
@@ -17,10 +17,14 @@ export const DiscreteSlider = ({ steps, handleChange, handleSize }: DiscreteSlid
 
     };
     const stepSize = Math.floor(max / steps);
-    const numSteps = [];
-    for (let i = min; i <= max; i += stepSize) {
-        numSteps.push(i);
-    }
+    const numSteps = useMemo(() => {
+        const stepsArr = [];
+        for (let i = min; i <= max; i += stepSize) {
+            stepsArr.push(i);
+        }
+        return stepsArr;
+    }, [steps])
+    
     return (
         <div className='slider-container'>
             <input
